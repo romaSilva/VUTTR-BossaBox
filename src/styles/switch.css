@@ -1,0 +1,41 @@
+.label {
+  min-width: 170px;
+  font-size: 11px;
+
+  display: flex;
+  align-items: center;
+}
+
+.label .span {
+  width: 32.5px;
+  height: 17.5px;
+  background-color: #ebeaed;
+  border-radius: 8.75px;
+  margin-right: 10px;
+  transition: all 0.2s ease-in-out;
+}
+
+.label .span::before {
+  content: "";
+  display: block;
+  background-color: #fff;
+  width: 13.5px;
+  height: 13.5px;
+  border-radius: 50%;
+  margin: 2px;
+  transition: all 0.2s ease-in-out;
+}
+.label .input:checked + .span {
+  background-color: #12db89;
+}
+
+.label .input:checked + .span:before {
+  transform: translateX(15px);
+}
+
+.input {
+  visibility: hidden;
+  width: 0;
+  height: 0;
+  overflow: hidden;
+}
