@@ -1,10 +1,11 @@
 import React, { useContext } from "react";
-
-import globalContext from "../../store/globalContext";
 import Modal from "react-modal";
 
+import globalContext from "../../store/globalContext";
+
 import { StyledForm } from "./style";
-import { AiOutlinePlus } from "react-icons/ai";
+import { RiAddLine } from "react-icons/ri";
+import { StyledHeader } from "./style";
 
 Modal.setAppElement("#root");
 
@@ -17,7 +18,17 @@ const AddModal = () => {
       isOpen={addModal}
       onRequestClose={() => handleAddModalClick(false)}
     >
-      <h2 style={{ margin: "15px 30px" }}>+ Add New Tool</h2>
+      <StyledHeader>
+        <RiAddLine
+          style={{
+            color: "#170C3A",
+            fontSize: "23px",
+            marginRight: "3px",
+          }}
+        />
+        <h2>Add New Tool</h2>
+      </StyledHeader>
+
       <StyledForm>
         <label htmlFor="toolName">Tool Name</label>
         <input

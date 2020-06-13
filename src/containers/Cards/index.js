@@ -5,11 +5,11 @@ import Card from "../../components/Card";
 import globalContext from "../../store/globalContext";
 
 const Cards = () => {
-  const { tools, getTools } = useContext(globalContext);
+  const { tools, input, checkbox, getSearchTools } = useContext(globalContext);
 
   useEffect(() => {
-    getTools();
-  }, []);
+    getSearchTools();
+  }, [input, checkbox]);
 
   return tools ? tools.map((tool) => <Card key={tool.id} tool={tool} />) : null;
 };

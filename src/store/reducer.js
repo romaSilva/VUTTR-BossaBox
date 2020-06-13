@@ -10,6 +10,26 @@ export default (state, action) => {
         ...state,
         addModal: action.payload,
       };
+    case "SET_REMOVE_MODAL":
+      return {
+        ...state,
+        removeModal: action.payload,
+      };
+    case "SET_INPUT":
+      return {
+        ...state,
+        input: action.payload,
+      };
+    case "SET_CHECKBOX":
+      return {
+        ...state,
+        checkbox: action.payload,
+      };
+    case "SET_SELECTED":
+      return {
+        ...state,
+        selected: action.payload,
+      };
     default:
       return state;
   }

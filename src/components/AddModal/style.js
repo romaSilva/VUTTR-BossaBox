@@ -65,3 +65,11 @@ export const StyledForm = styled.form`
     }
   }
 `;
+
+export const StyledHeader = styled.header`
+  color: #170c3a;
+  margin: 10px 0 20px 25px;
+
+  display: flex;
+  align-items: center;
+`;

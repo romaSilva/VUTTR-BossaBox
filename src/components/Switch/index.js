@@ -1,8 +1,12 @@
-import React from "react";
+import React, { useContext } from "react";
+
+import globalContext from "../../store/globalContext";
 
 import "../../styles/switch.css";
 
 const Switch = ({ id }) => {
+  const { handleCheckboxChange } = useContext(globalContext);
+
   return (
     <label className="label" htmlFor={id}>
       <input
@@ -10,7 +14,7 @@ const Switch = ({ id }) => {
         type="checkbox"
         id={id}
         value={id}
-        onChange={(e) => console.log(e.target.value)}
+        onChange={handleCheckboxChange}
       />
       <span className="span"></span>
       Search in tags only
