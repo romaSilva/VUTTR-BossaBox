@@ -9,9 +9,12 @@ import { RiCloseLine } from "react-icons/ri";
 Modal.setAppElement("#root");
 
 const RemoveModal = () => {
-  const { selected, removeModal, handleRemoveModalClick } = useContext(
-    globalContext
-  );
+  const {
+    selected,
+    removeModal,
+    handleRemoveModalClick,
+    handleRemove,
+  } = useContext(globalContext);
 
   return (
     <Modal
@@ -33,7 +36,7 @@ const RemoveModal = () => {
         <p>Are you sure you want to remove {selected && selected.title}?</p>
         <div>
           <button onClick={() => handleRemoveModalClick(false)}>Cancel</button>
-          <button>Yes, Remove</button>
+          <button onClick={handleRemove}>Yes, Remove</button>
         </div>
       </StyledMain>
     </Modal>
@@ -51,7 +54,8 @@ const removeModalStyle = {
     bottom: "auto",
     marginRight: "-50%",
     transform: "translate(-50%, -50%)",
-    width: "450px",
+    maxWidth: "450px",
+    width: "100%",
   },
 };
 

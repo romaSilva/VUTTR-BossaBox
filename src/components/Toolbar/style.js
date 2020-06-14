@@ -1,21 +1,25 @@
 import styled from "styled-components";
 
 export const ToolbarContainer = styled.div`
-  height: 25px;
+  min-height: 25px;
   margin-top: 40px;
   margin-bottom: 30px;
 
   display: flex;
 
   form {
+    width: 100%;
+
     display: flex;
     align-items: center;
+    flex-wrap: wrap;
 
     .text {
+      margin-top: 15px;
       border: 0.8px solid #ebeaed;
       background-color: #f5f4f6;
       border-radius: 2px;
-      height: 100%;
+      height: 25px;
       color: #b1adb9;
       width: 200px;
       margin-right: 20px;
@@ -38,6 +42,7 @@ export const ToolbarContainer = styled.div`
 export const ButtonContainer = styled.div`
   flex-grow: 1;
   text-align: right;
+  margin-top: 15px;
 
   button {
     height: 25px;

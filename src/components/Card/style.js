@@ -3,7 +3,7 @@ import styled from "styled-components";
 export const CardContainer = styled.div`
   border: 0.8px solid #ebeaed;
   margin: 20px 0;
-  height: 130px;
+  min-height: 130px;
   border-radius: 2px;
   box-shadow: 0px 5px 7px #0000000d;
 
@@ -47,4 +47,5 @@ export const TagsContainer = styled.div`
 
   display: flex;
   align-items: flex-end;
+  flex-wrap: wrap;
 `;

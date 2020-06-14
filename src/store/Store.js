@@ -62,6 +62,16 @@ const Store = (props) => {
     });
   };
 
+  const handleRemove = async () => {
+    await api.delete(`tools/${state.selected.id}`);
+    getSearchTools();
+
+    dispatch({
+      type: "SET_REMOVE_MODAL",
+      payload: false,
+    });
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -76,6 +86,7 @@ const Store = (props) => {
         handleRemoveModalClick,
         handleInputChange,
         handleCheckboxChange,
+        handleRemove,
       }}
     >
       {props.children}

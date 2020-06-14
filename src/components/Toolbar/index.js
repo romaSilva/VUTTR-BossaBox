@@ -25,10 +25,17 @@ const Toolbar = () => {
           />
         </div>
         <Switch id="tags" />
+        <ButtonContainer>
+          <button
+            onClick={(e) => {
+              e.preventDefault();
+              handleAddModalClick(true);
+            }}
+          >
+            + Add
+          </button>
+        </ButtonContainer>
       </form>
-      <ButtonContainer>
-        <button onClick={() => handleAddModalClick(true)}>+ Add</button>
-      </ButtonContainer>
     </ToolbarContainer>
   );
 };
