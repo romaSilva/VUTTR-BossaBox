@@ -12,6 +12,7 @@ const Store = (props) => {
     input: "",
     checkbox: false,
     selected: undefined,
+    alert: false,
   };
 
   const [state, dispatch] = useReducer(reducer, initialState);
@@ -72,6 +73,20 @@ const Store = (props) => {
     });
   };
 
+  const handleSubmit = async (tool) => {
+    if (!tool.title || !tool.link || !tool.description || !tool.tags) {
+      dispatch({
+        type: "SET_ALERT",
+        payload: true,
+      });
+      return false;
+    }
+    await api.post("tools", tool);
+
+    getSearchTools();
+    return true;
+  };
+
   return (
     <GlobalContext.Provider
       value={{
@@ -81,12 +96,14 @@ const Store = (props) => {
         input: state.input,
         checkbox: state.checkbox,
         selected: state.selected,
+        alert: state.alert,
         getSearchTools,
         handleAddModalClick,
         handleRemoveModalClick,
         handleInputChange,
         handleCheckboxChange,
         handleRemove,
+        handleSubmit,
       }}
     >
       {props.children}

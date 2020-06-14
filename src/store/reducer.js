@@ -30,6 +30,11 @@ export default (state, action) => {
         ...state,
         selected: action.payload,
       };
+    case "SET_ALERT":
+      return {
+        ...state,
+        alert: action.payload,
+      };
     default:
       return state;
   }
