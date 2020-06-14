@@ -14,7 +14,6 @@ export const StyledForm = styled.form`
     background: #f5f4f6 0% 0% no-repeat padding-box;
     border: 0.8px solid #ebeaed;
     border-radius: 2px;
-    margin-bottom: 15px;
     height: 30px;
     font-size: 11px;
     padding: 5px;
@@ -30,7 +29,6 @@ export const StyledForm = styled.form`
     background: #f5f4f6 0% 0% no-repeat padding-box;
     border: 0.8px solid #ebeaed;
     border-radius: 2px;
-    margin-bottom: 15px;
     resize: none;
     height: 120px;
     font-size: 11px;
@@ -72,4 +70,12 @@ export const StyledHeader = styled.header`
 
   display: flex;
   align-items: center;
+`;
+
+export const StyledAlert = styled.div`
+  font-size: 11px;
+  color: #f95e5a;
+  margin-bottom: 15px;
+  align-self: flex-end;
+  min-height: 13px;
 `;

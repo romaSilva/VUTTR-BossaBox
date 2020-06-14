@@ -74,11 +74,24 @@ const Store = (props) => {
   };
 
   const handleSubmit = async (tool) => {
-    if (!tool.title || !tool.link || !tool.description || !tool.tags) {
+    if (
+      !tool.title ||
+      !tool.link ||
+      !tool.description ||
+      tool.tags.length < 1
+    ) {
       dispatch({
         type: "SET_ALERT",
         payload: true,
       });
+
+      setTimeout(() => {
+        dispatch({
+          type: "SET_ALERT",
+          payload: false,
+        });
+      }, 2000);
+
       return false;
     }
     await api.post("tools", tool);

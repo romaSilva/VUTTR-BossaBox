@@ -3,14 +3,13 @@ import Modal from "react-modal";
 
 import globalContext from "../../store/globalContext";
 
-import { StyledForm } from "./style";
 import { RiAddLine } from "react-icons/ri";
-import { StyledHeader } from "./style";
+import { StyledHeader, StyledForm, StyledAlert } from "./style";
 
 Modal.setAppElement("#root");
 
 const AddModal = () => {
-  const { addModal, handleAddModalClick, handleSubmit } = useContext(
+  const { addModal, alert, handleAddModalClick, handleSubmit } = useContext(
     globalContext
   );
 
@@ -19,16 +18,20 @@ const AddModal = () => {
   const [description, setDescription] = useState("");
   const [tags, setTags] = useState("");
 
+  const closeAndClean = () => {
+    handleAddModalClick(false);
+    setTitle("");
+    setLink("");
+    setDescription("");
+    setTags("");
+  };
+
   return (
     <Modal
       style={addModalStyle}
       isOpen={addModal}
       onRequestClose={() => {
-        handleAddModalClick(false);
-        setTitle("");
-        setLink("");
-        setDescription("");
-        setTags("");
+        closeAndClean();
       }}
     >
       <StyledHeader>
@@ -52,11 +55,7 @@ const AddModal = () => {
             tags: tags.split(" ").filter((tag) => tag !== ""),
           });
           if (response) {
-            handleAddModalClick(false);
-            setTitle("");
-            setLink("");
-            setDescription("");
-            setTags("");
+            closeAndClean();
           }
         }}
       >
@@ -67,7 +66,23 @@ const AddModal = () => {
           placeholder="Digite o nome da ferramenta..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
+          style={
+            alert && !title
+              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
+              : null
+          }
         />
+        <StyledAlert>
+          <span
+            style={
+              alert && !title
+                ? { visibility: "visible" }
+                : { visibility: "hidden" }
+            }
+          >
+            Campo Obrigatório
+          </span>
+        </StyledAlert>
         <label htmlFor="toolLink">Tool Link *</label>
         <input
           type="text"
@@ -75,7 +90,23 @@ const AddModal = () => {
           placeholder="Digite o link da ferramenta..."
           value={link}
           onChange={(e) => setLink(e.target.value)}
+          style={
+            alert && !link
+              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
+              : null
+          }
         />
+        <StyledAlert>
+          <span
+            style={
+              alert && !link
+                ? { visibility: "visible" }
+                : { visibility: "hidden" }
+            }
+          >
+            Campo Obrigatório
+          </span>
+        </StyledAlert>
         <label htmlFor="desc">Tool Description *</label>
         <textarea
           name=""
@@ -85,7 +116,23 @@ const AddModal = () => {
           placeholder="Digite a descrição..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
+          style={
+            alert && !description
+              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
+              : null
+          }
         ></textarea>
+        <StyledAlert>
+          <span
+            style={
+              alert && !description
+                ? { visibility: "visible" }
+                : { visibility: "hidden" }
+            }
+          >
+            Campo Obrigatório
+          </span>
+        </StyledAlert>
         <label htmlFor="tags">Tags *</label>
         <input
           type="text"
@@ -93,7 +140,23 @@ const AddModal = () => {
           placeholder="Insira as tags..."
           value={tags}
           onChange={(e) => setTags(e.target.value)}
+          style={
+            alert && !tags
+              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
+              : null
+          }
         />
+        <StyledAlert>
+          <span
+            style={
+              alert && !tags
+                ? { visibility: "visible" }
+                : { visibility: "hidden" }
+            }
+          >
+            Campo Obrigatório
+          </span>
+        </StyledAlert>
         <button type="submit">Add Tool</button>
       </StyledForm>
     </Modal>
