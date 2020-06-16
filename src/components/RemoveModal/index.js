@@ -1,3 +1,6 @@
+/*this is the modal component for removing new tools, 
+it accesses the selected tool through the context*/
+
 import React, { useContext } from "react";
 import Modal from "react-modal";
 

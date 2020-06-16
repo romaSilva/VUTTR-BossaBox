@@ -1,3 +1,6 @@
+/*this is the toolbar component, it renders a form containing
+ the text search input, the styled switch and the add button*/
+
 import React, { useContext } from "react";
 
 import Switch from "../Switch";

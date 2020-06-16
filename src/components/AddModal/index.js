@@ -1,3 +1,7 @@
+/*this is the modal component for adding new tools, 
+it contains the form and, conditional styles and
+all the state management for that*/
+
 import React, { useContext, useState } from "react";
 import Modal from "react-modal";
 
@@ -66,11 +70,7 @@ const AddModal = () => {
           placeholder="Digite o nome da ferramenta..."
           value={title}
           onChange={(e) => setTitle(e.target.value)}
-          style={
-            alert && !title
-              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
-              : null
-          }
+          style={alert && !title ? alertStyle : null}
         />
         <StyledAlert>
           <span
@@ -90,11 +90,7 @@ const AddModal = () => {
           placeholder="Digite o link da ferramenta..."
           value={link}
           onChange={(e) => setLink(e.target.value)}
-          style={
-            alert && !link
-              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
-              : null
-          }
+          style={alert && !link ? alertStyle : null}
         />
         <StyledAlert>
           <span
@@ -116,11 +112,7 @@ const AddModal = () => {
           placeholder="Digite a descrição..."
           value={description}
           onChange={(e) => setDescription(e.target.value)}
-          style={
-            alert && !description
-              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
-              : null
-          }
+          style={alert && !description ? alertStyle : null}
         ></textarea>
         <StyledAlert>
           <span
@@ -140,11 +132,7 @@ const AddModal = () => {
           placeholder="Insira as tags..."
           value={tags}
           onChange={(e) => setTags(e.target.value)}
-          style={
-            alert && !tags
-              ? { backgroundColor: "#FEEFEE", borderColor: "#F95E5A" }
-              : null
-          }
+          style={alert && !tags ? alertStyle : null}
         />
         <StyledAlert>
           <span
@@ -177,6 +165,11 @@ const addModalStyle = {
     maxWidth: "600px",
     width: "100%",
   },
+};
+
+const alertStyle = {
+  backgroundColor: "#FEEFEE",
+  borderColor: "#F95E5A",
 };
 
 export default AddModal;

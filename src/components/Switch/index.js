@@ -1,3 +1,5 @@
+/*simply that cool looking toggle component*/
+
 import React, { useContext } from "react";
 
 import globalContext from "../../store/globalContext";

@@ -1,3 +1,6 @@
+/*this is the card component, it receives and displays all
+the tool information through a prop, passed in the cards container*/
+
 import React, { useContext } from "react";
 import Tag from "../Tag";
 

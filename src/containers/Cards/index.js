@@ -1,3 +1,5 @@
+/*just a container for all the tool cards*/
+
 import React, { useEffect, useContext } from "react";
 
 import Card from "../../components/Card";

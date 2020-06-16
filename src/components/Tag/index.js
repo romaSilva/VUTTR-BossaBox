@@ -1,3 +1,5 @@
+/*a component for each of the tags*/
+
 import React from "react";
 
 const Tag = ({ tag }) => {

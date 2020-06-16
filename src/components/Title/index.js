@@ -1,3 +1,5 @@
+/*the title with some styles add to it with styled components*/
+
 import React from "react";
 import { TitleContainer } from "./style";
 
