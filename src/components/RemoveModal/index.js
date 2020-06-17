@@ -33,7 +33,7 @@ const RemoveModal = () => {
             marginRight: "3px",
           }}
         />
-        <h2>Remove Modal</h2>
+        <h2>Remove Tool</h2>
       </StyledHeader>
       <StyledMain>
         <p>Are you sure you want to remove {selected && selected.title}?</p>

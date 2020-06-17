@@ -1,3 +1,5 @@
+//all state management is done here
+//state variables and functions declared here are available anywhere, with the context API
 import React, { useReducer } from "react";
 
 import GlobalContext from "./globalContext";
@@ -17,6 +19,7 @@ const Store = (props) => {
 
   const [state, dispatch] = useReducer(reducer, initialState);
 
+  //api get to update the ui with the current tools
   const getSearchTools = async () => {
     await api
       .get(`tools?${state.checkbox ? "tags_like" : "q"}=${state.input}`)
@@ -28,6 +31,7 @@ const Store = (props) => {
       });
   };
 
+  //set if the add modal is opened or not
   const handleAddModalClick = (isOpen) => {
     dispatch({
       type: "SET_ADD_MODAL",
@@ -35,6 +39,8 @@ const Store = (props) => {
     });
   };
 
+  //sets the selected card to whatever the user clicked
+  //sets if the rm modal is opened or not
   const handleRemoveModalClick = (isOpen, id) => {
     const selected = state.tools.find((tool) => tool.id === id);
 
@@ -49,6 +55,7 @@ const Store = (props) => {
     });
   };
 
+  //sets the input for whatever was typed
   const handleInputChange = (e) => {
     dispatch({
       type: "SET_INPUT",
@@ -56,6 +63,7 @@ const Store = (props) => {
     });
   };
 
+  //checks if the checbox is checked
   const handleCheckboxChange = (e) => {
     dispatch({
       type: "SET_CHECKBOX",
@@ -63,6 +71,7 @@ const Store = (props) => {
     });
   };
 
+  //api delete for the selected tool
   const handleRemove = async () => {
     await api.delete(`tools/${state.selected.id}`);
     getSearchTools();
@@ -73,6 +82,9 @@ const Store = (props) => {
     });
   };
 
+  //handles the form submit for new tools,
+  //sets an alert in case of a missing field
+  //api post if everything is fine, then updates the ui
   const handleSubmit = async (tool) => {
     if (
       !tool.title ||
